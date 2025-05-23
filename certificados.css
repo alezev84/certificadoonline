@@ -41,9 +41,20 @@ table {
   margin-top: 20px;
   border-collapse: collapse;
 }
+th {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
 th, td {
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; /* Só linha embaixo */
   padding: 8px;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Efeito hover suave */
 }
 
 .button-busca {
