@@ -92,16 +92,15 @@ th, td {
   padding: 10px 20px;
 }
 .cabecalho {
-  margin: 25px 150px;
-
+  margin: 0 150px;
 }
 .logo {
   font-size: 24px;
   font-weight: bold;
   color: black;
   text-decoration: none;
+  width: 250px; height: auto;
 }
-
 .navbar-links {
   list-style: none;
   display: flex;  /* Exibe os links na horizontal inicialmente */
