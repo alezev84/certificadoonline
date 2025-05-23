@@ -82,6 +82,19 @@ tr:hover {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); /* Efeito de foco */
 }
 
+.btn-download {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #45a049;
+}
+
 /* Estilos da Navbar */
 .navbar {
   width: 100vw;
