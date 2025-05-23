@@ -73,6 +73,7 @@ th, td {
 
 /* Estilos da Navbar */
 .navbar {
+  margin: 0;
   background-color: #333;
   color: white;
   position: sticky;
