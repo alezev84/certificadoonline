@@ -188,7 +188,12 @@ th, td {
   .navbar-logo {
     margin-right: 15px;
   }
-}
+  .cabecalho {
+    justify-content: center;
+    display: flex;
+    margin: 25px 0;
+  }
+  }
 
 .icon {
   position: fixed;
