@@ -37,7 +37,7 @@ async function buscarCertificado() {
 
     // Preenche a tabela com os dados recebidos
     dados.forEach(cert => {
-      const row = `<tr><td>${cert.nome}</td><td>${cert.evento}</td><td><a href="${cert.link_certificado}" target="_blank">Visualizar</a></td></tr>`;
+      const row = `<tr><td>${cert.nome}</td><td>${cert.evento}</td><td><a href="${cert.link_certificado}" class="btn-download" target="_blank">Download</a></td></tr>`;
       corpoTabela.innerHTML += row;
     });
 
