@@ -73,13 +73,13 @@ th, td {
 
 /* Estilos da Navbar */
 .navbar {
-  margin: 0;
-  background-color: #333;
+  width: 100vw;
+  margin-left: -20px;
+  background-color: #555;
   color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 100vw;
   display: flex;
   flex-direction: column;  /* Navbar com layout vertical */
   align-items: center;
