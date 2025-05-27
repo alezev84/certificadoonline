@@ -2,67 +2,122 @@ body {
   font-family: Arial, sans-serif;
   background: #f2f2f2;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 600px;
-  margin: 50px auto;
+  width: 50%;
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  /* Box-shadow estilizado */
+  padding: 50px;
+  border-radius: 25px;
+  text-align: center;
+    /* Box-shadow estilizado */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05);
-  
-  /* Adicionando transição suave para quando o mouse passar sobre a caixa */
+    /* Adicionando transição suave para quando o mouse passar sobre a caixa */
   transition: box-shadow 0.3s ease-in-out;
+  margin: 50px auto;
 }
+
 .container:hover {
   /* Aumenta o efeito de box-shadow quando o mouse passar por cima */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 16px 32px rgba(0, 0, 0, 0.1);
 }
-.container .h1 {
-text-align: center;
+
+.container-eventos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 70%;
+  gap: 10px;
+  justify-content: center;
+    border-radius: 25px;
+    /* Box-shadow estilizado */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0), 0 8px 24px rgba(0, 0, 0, 0);
+    /* Adicionando transição suave para quando o mouse passar sobre a caixa */
+  transition: box-shadow 0.3s ease-in-out;
+  margin: 50px auto;
 }
-input {
-  width: calc(100% - 90px);
+
+.container-eventos img {
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05);
+  width: 130px;
+  height: 130px;
+  padding: 20px;
+  object-fit:contain;
+}
+
+input[type="email"] {
+  width: 70%;
   padding: 8px;
   margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
+
+input[type="email"]:focus {
+    border: 1px solid #007bff;
+    outline: 0;
+}
+
+.nome-evento p {
+  margin: 10px;
+  gap: 1px;
+}
+
 button {
-
-  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
-table {
-  width: 100%;
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#resultado {
   margin-top: 20px;
-  border-collapse: collapse;
-}
-th {
-  background-color: #000;
-  color: #fff;
-  padding: 10px;
-}
-
-th, td {
-  border-bottom: 1px solid #ddd; /* Só linha embaixo */
-  padding: 8px;
   text-align: left;
 }
 
-tr:hover {
-  background-color: #f1f1f1; /* Efeito hover suave */
+.cert-item {
+  background-color: lightcyan;
+  padding-inline: 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #f9f9f9;
+.cert-item a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.cert-item a:hover {
+  text-decoration: underline;
 }
 
 .button-busca {
-  background-color: #28a745; /* Cor verde */
+  background-color: rgb(40, 167, 69); /* Cor verde */
   color: white; /* Texto branco */
   border: none; /* Sem borda */
   padding: 10px 20px; /* Espaçamento interno */
@@ -74,20 +129,19 @@ tr:nth-child(even) {
 }
 
 .button-busca:hover {
-  background-color: #218838; /* Cor verde mais escura ao passar o mouse */
+  background-color: rgb(19, 114, 41); /* Cor verde */
 }
 
 .button-busca:active {
-  background-color: #1e7e34; /* Cor ainda mais escura quando pressionado */
+  background-color: rgb(19, 114, 41); /* Cor verde */
 }
 
 .button-busca:focus {
   outline: none; /* Remove o contorno ao focar */
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); /* Efeito de foco */
 }
 
 .btn-download {
-  background-color: #4CAF50;
+  background-color: #007bff;
   color: white;
   padding: 6px 12px;
   text-decoration: none;
@@ -96,13 +150,18 @@ tr:nth-child(even) {
 }
 
 .btn-download:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
+}
+
+.botao {
+  margin: auto 10px;
+    padding: 0;
+    color: white;
 }
 
 /* Estilos da Navbar */
 .navbar {
   width: 100vw;
-  margin-left: -20px;
   background-color: #555;
   color: white;
   position: sticky;
@@ -120,7 +179,7 @@ tr:nth-child(even) {
   padding: 10px 20px;
 }
 .cabecalho {
-  margin: 0 150px;
+  margin: 0 100px;
 }
 .logo {
   font-size: 24px;
