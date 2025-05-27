@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Certificados</title>
+  <link rel="stylesheet" href="certificados.css">
+  <script src="certificados.js" defer></script>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="cabecalho">
+          <img class="logo" src="https://yfnzfwpjoowwpnhhrhxx.supabase.co/storage/v1/object/sign/images/Logo%20-%20Certificado%20Online%20(1).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzliZDI3ZmRhLTVkZDgtNDVhYi04OTc5LTk3ZDYyYjkwMGFhYSJ9.eyJ1cmwiOiJpbWFnZXMvTG9nbyAtIENlcnRpZmljYWRvIE9ubGluZSAoMSkucG5nIiwiaWF0IjoxNzQ4MDA3NTkwLCJleHAiOjE3Nzk1NDM1OTB9.99lmfDfn-0xXMybTQMpXsGwVClxWg6upKKbRB31G26I" 
+          alt="">
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        
+        <div class="navbar-toggle" id="navbar-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <ul class="navbar-links" id="navbar-links">
+          <li><a href="./index.html">Home</a></li>
+          <li style="display: none;"><a href="./sobre">Sobre</a></li>
+          <li><a href="./eventos.html">Eventos</a></li>
+          <li style="display: none;"><a href="./contato">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Busca -->
+    <div class="container-eventos">
+        <a href="https://audi.iweventos.com.br/evento/jbo2025/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/vMsC74BF1NneBZB1QenRloMWIFz9.png" alt="JBO 2025"></a>
+        <a href="https://audi.iweventos.com.br/evento/simip2025/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/NJhykw5y1EJd0zu88ZK3e8KCztp9.png" alt="SIMIP 2025"></a>
+        <a href="https://audi.iweventos.com.br/evento/jpm2024/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/Xzz9cuxzb50C11DMvvX9Q1B7Rye1.png" alt="JPM 2024"></a>
+        <a href="https://audi.iweventos.com.br/evento/cbm2023/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/sozhlJUe7V7VpQrwCoSBscbX4Tp9.png" alt="CBM/JPM 2023"></a>
+        <a href="https://audi.iweventos.com.br/evento/jpm2022/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/z1DLFsuVWMHh6OtFEVnA262uFfZ4.png" alt="JPM 2022"></a>
+        <a href="https://audi.iweventos.com.br/evento/jbo2022/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/oEpgKBvfb8rOWbrozH8AhuWaoPw9.png" alt="JBO 2022"></a>
+        <a href="https://audi.iweventos.com.br/evento/jbo2021/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/ZwQf60TiHD2fbp03Tn1xxV4cs910.png" alt="JBO 2021"></a>
+        <a href="https://audi.iweventos.com.br/evento/jpm2021/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/x2WAJKBDpyEeVGUDvEjeQELQkuA7.jpg" alt="JPM 2021"></a>
+        <a href="https://audi.iweventos.com.br/evento/jbo2020/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/tVsUfZf5V2u6AKsD7gWZ3pLJLLl1.png" alt="JBO 2020"></a>
+        <a href="https://audi.iweventos.com.br/evento/jpm2020/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/1jurD0hHkXPMvTcCWXaud2ChJAd6.jpg" alt="JPM 2020"></a>
+        <a href="https://audi.iweventos.com.br/evento/jpm2019/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/7BuwzVOwyGUhSTjRUCG5JLerIrJ3.jpg" alt="JPM 2019"></a>
+        <a href="https://audi.iweventos.com.br/evento/jbo2019/certificados" target="_blank"><img src="https://audi.iweventos.com.br/upload/evento/logo/tSagLY9cb2KGWuqwAiFUuCaKlAE3.png" alt="JBO 2019"></a>
+    </div>
+    <script>
+        // Função para alternar o menu responsivo
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarLinks = document.getElementById('navbar-links');
+
+        // Escuta o clique no ícone de menu (hamburger)
+        navbarToggle.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active');  // Alterna a classe "active" na lista de links
+        });
+    </script>
+</body>
+</html>
