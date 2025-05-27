@@ -1,52 +1,55 @@
+const SUPABASE_URL = 'https://yfnzfwpjoowwpnhhrhxx.supabase.co';
+const SUPABASE_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlmbnpmd3Bqb293d3BuaGhyaHh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0MDQyMTAsImV4cCI6MjA2Mjk4MDIxMH0.DCE3VpweB5XVgiqxoqhudyIf9fNG4z26itku8c1TCk0'; // use sua chave pública real
+const TABLE = 'certificados';
+
 // Lógica de busca ao pressionar a tecla "Enter"
-document.getElementById('campoBusca').addEventListener('keypress', (event) => {
+document.getElementById('email').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     buscarCertificado();
   }
 });
 
-// Função para buscar certificados
 async function buscarCertificado() {
-  const busca = document.getElementById("campoBusca").value.trim();
-  const tabela = document.getElementById("tabelaCertificados");
-  const corpoTabela = tabela.querySelector("tbody");
-  const mensagemErro = document.getElementById("mensagemErro");
-
-  tabela.style.display = "none";  // Esconde a tabela inicialmente
-  mensagemErro.textContent = "";  // Limpa qualquer mensagem de erro anterior
-
-  // Verifica se o campo de busca está vazio
-  if (!busca) {
-    mensagemErro.textContent = "Por favor, digite um CPF ou e-mail.";
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  if (!email || !email.includes('@')) {
+    alert('Digite um e-mail válido.');
     return;
   }
 
-  try {
-    // Faz a requisição para o backend com o valor da busca
-    const response = await fetch(`https://backend-b9do.onrender.com/certificados?query=${busca}`);
-    if (!response.ok) throw new Error("Erro na requisição");
-    const dados = await response.json();
+  const url = `${SUPABASE_URL}/rest/v1/${TABLE}?email=eq.${email}`;
 
-    // Verifica se não encontrou dados
-    if (!dados.length) {
-      mensagemErro.textContent = "Nenhum certificado encontrado.";
-      return;
+  const resp = await fetch(url, {
+    headers: {
+      apikey: SUPABASE_API_KEY,
+      Authorization: `Bearer ${SUPABASE_API_KEY}`
     }
+  });
 
-    corpoTabela.innerHTML = "";  // Limpa a tabela antes de preencher com os dados
+  const dados = await resp.json();
+  mostrarResultado(dados);
+}
 
-    // Preenche a tabela com os dados recebidos
-    dados.forEach(cert => {
-      const row = `<tr><td>${cert.nome}</td><td>${cert.evento}</td><td><a href="${cert.link_certificado}" class="btn-download" target="_blank">Download</a></td></tr>`;
-      corpoTabela.innerHTML += row;
-    });
+function mostrarResultado(dados) {
+  const container = document.getElementById('resultado');
+  container.innerHTML = '';
 
-    // Exibe a tabela com os dados
-    tabela.style.display = "";
-  } catch (error) {
-    console.error("Erro ao buscar certificados:", error);
-    mensagemErro.textContent = "Erro ao buscar certificados! Verifique se o servidor está rodando.";
+  if (!dados.length) {
+    container.innerHTML = '<p>Nenhum certificado encontrado para este e-mail.</p>';
+    return;
   }
+
+  dados.forEach(cert => {
+    const div = document.createElement('div');
+    div.className = 'cert-item';
+    div.innerHTML = `
+      <div class="nome-evento">
+      <p><strong>${cert.nome}</strong></p>
+      <p>${cert.evento}</p></div>
+      <div class="botao">
+      <a class="btn-download" href="${cert.link_certificado}" target="_blank">Download</a></div>
+    `;
+    container.appendChild(div);
+  });
 }
 
 // Função para alternar o menu responsivo
