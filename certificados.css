@@ -242,6 +242,10 @@ button:hover {
     padding: 10px;
   }
 
+  .container-eventos {
+  width: 90%;
+  }
+
   #resultado {
     width: 100%;
   }
