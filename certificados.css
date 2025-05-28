@@ -57,7 +57,13 @@ body {
 }
 
 .container-eventos img:hover {
-  /* Aumenta o efeito de box-shadow quando o mouse passar por cima */
+  /* Efeito de borda quando o mouse passar por cima */
+  border: 1px solid goldenrod;
+  border-radius: 25px;
+}
+
+.container-eventos img:active {
+  /* Efeito de borda quando clica */
   border: 1px solid goldenrod;
   border-radius: 25px;
 }
