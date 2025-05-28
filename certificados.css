@@ -115,6 +115,10 @@ button:hover {
   margin: 8px;
 }
 
+.cert-item:hover {
+  background-color: lightgray;
+}
+
 .cert-item a {
   display: inline-block;
   color: white;
