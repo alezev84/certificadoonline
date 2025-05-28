@@ -48,6 +48,7 @@ body {
 .container-eventos img {
   background-color: white;
   border-radius: 25px;
+  border: 1px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05);
   width: 130px;
   height: 130px;
