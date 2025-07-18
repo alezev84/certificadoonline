@@ -199,7 +199,8 @@ button:hover {
   padding: 10px 20px;
 }
 .cabecalho {
-  height: 150px;
+  height: 200px;
+  padding: 10px;
   margin: 0 100px;
 }
 .logo {
