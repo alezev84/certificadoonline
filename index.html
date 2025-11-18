@@ -38,6 +38,12 @@
     <h1>Consulte seu Certificado</h1>
     <input type="email" id="email" placeholder="Digite seu e-mail..." autofocus required>
     <button class="button-busca" onclick="buscarCertificado()">Buscar</button>
+
+    <div id="loading-area" style="display: none; margin-top: 20px;">
+        <div class="spinner"></div>
+        <p id="loading-msg" style="margin-top: 10px; color: #666; font-style: italic;">Consultando...</p>
+    </div>
+      
     <div id="resultado"></div>
   </div>
   <a href="https://wa.me/5511963080881/?text=Olá,%20preciso%20de%20ajuda%20referente%20meus%20certificados" class="icon" target="_blank" aria-label="Fale conosco pelo WhatsApp">
