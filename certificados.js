@@ -1,7 +1,5 @@
-// ================= CONFIGURAÇÃO =================
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXUW3N0nwPcIeLGg0HQgUlnwZuReN6ZfTKtvDAKCbEy84dZS6r8l07DC4m2Wr8MfGEfA/exec';
 
-// Mensagens para distrair o usuário enquanto carrega
 const mensagensLoading = [
   "Consultando os arquivos...",
   "Revirando as gavetas...",
@@ -11,15 +9,15 @@ const mensagensLoading = [
   "Quase pronto...",
   "Ajustes finais..."
 ];
-// =================================================
+
+let intervaloMsg;
+let certificadosParaBaixar = [];
 
 document.getElementById('email').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     buscarCertificado();
   }
 });
-
-let intervaloMsg;
 
 async function buscarCertificado() {
   const emailInput = document.getElementById('email');
@@ -36,7 +34,7 @@ async function buscarCertificado() {
 
   container.innerHTML = '';
   loadingArea.style.display = 'block';
-  emailInput.disabled = true; // Trava o input para não buscar 2x
+  emailInput.disabled = true;
   
   let msgIndex = 0;
   msgElement.innerText = mensagensLoading[0];
@@ -65,14 +63,14 @@ async function buscarCertificado() {
     pararLoading();
     container.innerHTML = '<p style="color: red;">Ocorreu um erro ao buscar. Tente novamente.</p>';
   } finally {
-    emailInput.disabled = false; // Destrava o input
+    emailInput.disabled = false;
     emailInput.focus();
   }
 }
 
 function pararLoading() {
-  clearInterval(intervaloMsg); // Para de trocar as frases
-  document.getElementById('loading-area').style.display = 'none'; // Esconde o spinner
+  clearInterval(intervaloMsg);
+  document.getElementById('loading-area').style.display = 'none';
 }
 
 function mostrarResultado(dados) {
@@ -82,6 +80,16 @@ function mostrarResultado(dados) {
   if (!dados || dados.length === 0 || dados.erro) {
     container.innerHTML = '<p>Nenhum certificado encontrado para este e-mail. Verifique a digitação.</p>';
     return;
+  }
+
+  if (dados.length > 1) {
+    const btnAll = document.createElement('button');
+    btnAll.innerText = `Baixar Todos (${dados.length})`;
+    btnAll.className = 'btn-baixar-tudo';
+    
+    btnAll.onclick = () => abrirModalDownload(dados);
+    
+    container.appendChild(btnAll);
   }
 
   dados.forEach(cert => {
@@ -106,6 +114,33 @@ function mostrarResultado(dados) {
         div.style.opacity = 1;
     });
   });
+}
+
+function abrirModalDownload(dados) {
+    certificadosParaBaixar = dados;
+    document.getElementById('qtd-certs').innerText = dados.length;
+    document.getElementById('modal-aviso').style.display = 'flex';
+}
+
+function fecharModal() {
+    document.getElementById('modal-aviso').style.display = 'none';
+}
+
+function executarDownloadEmMassa() {
+    fecharModal();
+
+    certificadosParaBaixar.forEach((cert, index) => {
+        setTimeout(() => {
+            window.open(cert.link_certificado, '_blank');
+        }, index * 1000); 
+    });
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('modal-aviso');
+    if (event.target == modal) {
+        fecharModal();
+    }
 }
 
 const navbarToggle = document.getElementById('navbar-toggle');
